@@ -1,43 +1,44 @@
+
 # Padel Team Generator
 
-A Next.js application for creating balanced teams for padel sessions.
-
-## Overview
-
-Padel Team Generator helps organize players into fair teams across multiple courts and rounds. It's built with modern web technologies and offers a responsive design for various screen sizes.
+Padel Team Generator is a Next.js application designed to create balanced teams for padel sessions. It helps organize players into fair teams across multiple courts and rounds.
 
 ## Features
 
-- Configure number of courts and rounds
+- Set the number of available courts and rounds
 - Input player names
-- Generate balanced teams automatically
-- Save generated teams to local storage
-- Responsive design
+- Generate balanced teams for each round
+- Responsive design for various screen sizes
+- Local storage for saving generated teams
 
-## Tech Stack
+## Technologies Used
 
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/) components
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui components
 
 ## Getting Started
 
 1. Clone the repository
 2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the development server:
-   ```
-   npm run dev
-   ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+```bash
+npm install
+```
+
+3. Run the development server:
+
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Project Structure
 
-- `app/`: Main application components and pages
+- `app/`: Contains the main application components and pages
 - `components/`: Reusable UI components
 - `lib/`: Utility functions
 - `public/`: Static assets
@@ -46,41 +47,28 @@ Padel Team Generator helps organize players into fair teams across multiple cour
 
 ### InitialPage
 
-Handles the initial setup for courts and rounds.
+This component handles the initial setup, allowing users to select the number of courts and rounds.
 
 ### PadelTeamGenerator
 
-Main component managing application state, player input, and team generation.
+The main component that manages the state of the application, including player input and team generation.
 
 ## Customization
 
-Modify `tailwind.config.ts` and `app/globals.css` to customize the application's appearance.
+You can customize the appearance of the application by modifying the Tailwind CSS configuration in `tailwind.config.ts` and the global styles in `app/globals.css`.
 
-## Development Features
+## Development
 
-A development-only feature for populating random names is available when `NEXT_PUBLIC_ENVIRONMENT` is set to 'development'.
+The project includes a development-only feature to populate random names for testing purposes. This feature is only available when the `NEXT_PUBLIC_ENVIRONMENT` variable is set to 'development'.
 
 ## Deployment
 
-Deploy easily using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme). See [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more options.
+The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js. Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## Contributing
 
-Contributions are welcome! Please submit a Pull Request with your proposed changes.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is open source under the MIT License.
-
-## Acknowledgements
-
-- Next.js team for the excellent framework
-- shadcn for the UI components
-- All contributors and supporters of this project
-
----
-
-For more detailed information on using Next.js, check out the following resources:
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Learn Next.js](https://nextjs.org/learn)
-- [Next.js GitHub repository](https://github.com/vercel/next.js)
+This project is open source and available under the MIT License.
