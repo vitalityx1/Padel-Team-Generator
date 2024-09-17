@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Padel Team Generator
+
+A Next.js application for creating balanced teams for padel sessions.
+
+## Overview
+
+Padel Team Generator helps organize players into fair teams across multiple courts and rounds. It's built with modern web technologies and offers a responsive design for various screen sizes.
+
+## Features
+
+- Configure number of courts and rounds
+- Input player names
+- Generate balanced teams automatically
+- Save generated teams to local storage
+- Responsive design
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/) components
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `app/`: Main application components and pages
+- `components/`: Reusable UI components
+- `lib/`: Utility functions
+- `public/`: Static assets
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### InitialPage
 
-## Learn More
+Handles the initial setup for courts and rounds.
 
-To learn more about Next.js, take a look at the following resources:
+### PadelTeamGenerator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Main component managing application state, player input, and team generation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+Modify `tailwind.config.ts` and `app/globals.css` to customize the application's appearance.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A development-only feature for populating random names is available when `NEXT_PUBLIC_ENVIRONMENT` is set to 'development'.
+
+## Deployment
+
+Deploy easily using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme). See [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more options.
+
+## Contributing
+
+Contributions are welcome! Please submit a Pull Request with your proposed changes.
+
+## License
+
+This project is open source under the MIT License.
+
+## Acknowledgements
+
+- Next.js team for the excellent framework
+- shadcn for the UI components
+- All contributors and supporters of this project
+
+---
+
+For more detailed information on using Next.js, check out the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js GitHub repository](https://github.com/vercel/next.js)

@@ -13,6 +13,7 @@ const InitialPage = dynamic(() => import('./InitialPage'), { ssr: false })
 
 export default function PadelTeamGenerator() {
   const [courts, setCourts] = useState(5)
+  const [rounds, setRounds] = useState(3)
   const [players, setPlayers] = useState<string[]>([])
   const [generatedTeams, setGeneratedTeams] = useState<string[][][]>([])
   const [error, setError] = useState<string | null>(null)
@@ -57,10 +58,6 @@ export default function PadelTeamGenerator() {
       return
     }
 
-    const rounds = 3
-    const courtsPerRound = courts
-    const playersPerCourt = 4
-
     const teams: string[][][] = []
     const playerPartners: { [key: string]: Set<string> } = {}
 
@@ -72,10 +69,10 @@ export default function PadelTeamGenerator() {
       const roundTeams: string[][] = []
       let availablePlayers = [...filledPlayers]
 
-      for (let court = 0; court < courtsPerRound; court++) {
+      for (let court = 0; court < courts; court++) {
         const courtPlayers: string[] = []
 
-        for (let i = 0; i < playersPerCourt; i++) {
+        for (let i = 0; i < 4; i++) {
           let bestPlayer = ''
           let bestScore = -1
 
@@ -137,8 +134,9 @@ export default function PadelTeamGenerator() {
     }, 100)
   }
 
-  const handleStart = (selectedCourts: number) => {
+  const handleStart = (selectedCourts: number, selectedRounds: number) => {
     setCourts(selectedCourts)
+    setRounds(selectedRounds)
     setShowInitialPage(false)
     window.scrollTo(0, 0)
   }
