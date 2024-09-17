@@ -222,25 +222,25 @@ export default function PadelTeamGenerator() {
                                 <div className="relative">
                                   <p className="font-medium text-blue-600 pb-1 mb-2 border-b-2 border-blue-200">Team A</p>
                                   <div className="space-y-1 relative">
+                                    <div className="absolute left-0 top-0 bottom-0 w-px bg-blue-300"></div>
                                     {court.slice(0, 2).map((player, index) => (
                                       <p key={index} className="text-sm pl-4 relative">
-                                        <span className="absolute left-0 top-1/2 w-3 h-px bg-black"></span>
+                                        <span className="absolute left-0 top-1/2 w-3 h-px bg-blue-300"></span>
                                         {player}
                                       </p>
                                     ))}
-                                    <span className="absolute left-0 top-0 bottom-0 w-px bg-black"></span>
                                   </div>
                                 </div>
                                 <div className="relative">
                                   <p className="font-medium text-blue-600 pb-1 mb-2 border-b-2 border-blue-200">Team B</p>
                                   <div className="space-y-1 relative">
+                                    <div className="absolute left-0 top-0 bottom-0 w-px bg-blue-300"></div>
                                     {court.slice(2, 4).map((player, index) => (
                                       <p key={index} className="text-sm pl-4 relative">
-                                        <span className="absolute left-0 top-1/2 w-3 h-px bg-black"></span>
+                                        <span className="absolute left-0 top-1/2 w-3 h-px bg-blue-300"></span>
                                         {player}
                                       </p>
                                     ))}
-                                    <span className="absolute left-0 top-0 bottom-0 w-px bg-black"></span>
                                   </div>
                                 </div>
                               </div>
