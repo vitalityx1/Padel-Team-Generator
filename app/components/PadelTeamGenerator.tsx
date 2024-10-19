@@ -51,65 +51,59 @@ export default function PadelTeamGenerator() {
   }
 
   const generateTeams = () => {
-    setError(null)
-    const filledPlayers = players.filter(player => player.trim() !== '')
+    setError(null);
+    const filledPlayers = players.filter(player => player.trim() !== '');
     if (filledPlayers.length !== players.length) {
-      setError(`Voer alstublieft namen in voor alle ${players.length} spelers.`)
-      return
+      setError(`Voer alstublieft namen in voor alle ${players.length} spelers.`);
+      return;
     }
-
-    const teams: string[][][] = []
-    const playerPartners: { [key: string]: Set<string> } = {}
-
+  
+    const teams: string[][][] = [];
+    const playerPartners: { [key: string]: Set<string> } = {};
+  
     filledPlayers.forEach(player => {
-      playerPartners[player] = new Set()
-    })
-
+      playerPartners[player] = new Set();
+    });
+  
     for (let round = 0; round < rounds; round++) {
-      const roundTeams: string[][] = []
-      let availablePlayers = [...filledPlayers]
-
+      const roundTeams: string[][] = [];
+      let availablePlayers = [...filledPlayers];
+  
       for (let court = 0; court < courts; court++) {
-        const courtPlayers: string[] = []
-
+        const courtPlayers: string[] = [];
+  
         for (let i = 0; i < 4; i++) {
-          let bestPlayer = ''
-          let bestScore = -1
-
-          for (const player of availablePlayers) {
-            const score = courtPlayers.every(p => !playerPartners[player].has(p)) ? 1 : 0
-            if (score > bestScore || (score === bestScore && Math.random() < 0.5)) {
-              bestScore = score
-              bestPlayer = player
-            }
+          if (availablePlayers.length === 0) {
+            // If we run out of available players, reset the list
+            availablePlayers = [...filledPlayers];
           }
-
-          if (bestPlayer === '') {
-            setError("Kan geen teams genereren met de gegeven beperkingen. Probeer het opnieuw.")
-            return
-          }
-
-          courtPlayers.push(bestPlayer)
-          availablePlayers = availablePlayers.filter(p => p !== bestPlayer)
-
+  
+          // Choose a random player from the available players
+          const randomIndex = Math.floor(Math.random() * availablePlayers.length);
+          const chosenPlayer = availablePlayers[randomIndex];
+  
+          courtPlayers.push(chosenPlayer);
+          availablePlayers.splice(randomIndex, 1);
+  
+          // Update partnerships
           courtPlayers.forEach(p => {
-            if (p !== bestPlayer) {
-              playerPartners[bestPlayer].add(p)
-              playerPartners[p].add(bestPlayer)
+            if (p !== chosenPlayer) {
+              playerPartners[chosenPlayer].add(p);
+              playerPartners[p].add(chosenPlayer);
             }
-          })
+          });
         }
-
-        roundTeams.push(courtPlayers)
+  
+        roundTeams.push(courtPlayers);
       }
-
-      teams.push(roundTeams)
+  
+      teams.push(roundTeams);
     }
-
-    setGeneratedTeams(teams)
-    localStorage.setItem('padelTeams', JSON.stringify(teams))
-    window.scrollTo(0, 0)
-  }
+  
+    setGeneratedTeams(teams);
+    localStorage.setItem('padelTeams', JSON.stringify(teams));
+    window.scrollTo(0, 0);
+  };
 
   const resetTeams = () => {
     setGeneratedTeams([])
